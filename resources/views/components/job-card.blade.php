@@ -1,17 +1,17 @@
-<div class="bg-white/5 p-4 rounded-xl flex flex-col gap-8 text-center">
+<x-panel class="flex-col gap-8 text-center">
     <p class="text-sm text-start">Company</p>
 
-    <div class="font-bold">
-        <h3>Title</h3>
-        <p>Time - Salary</p>
+    <div class="py-2">
+        <h3 class="text-xl font-bold group-hover:text-blue-600 transition duration-300">Title</h3>
+        <p class="mt-4">Time - Salary</p>
     </div>
 
     <div class="flex justify-between items-center mt-auto">
         <div>
-            <x-tag size="sm" href="#">Tag</x-tag>
-            <x-tag size="sm" href="#">Tag</x-tag>
+            <x-tag size="xs" href="#">Tag</x-tag>
+            <x-tag size="xs" href="#">Tag</x-tag>
         </div>
 
-        <img src="http://placehold.it/42/42" alt="" class="rounded-md">
+        <x-employer-logo />
     </div>
-</div>
+</x-panel>
