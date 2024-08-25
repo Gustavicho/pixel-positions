@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
 {
@@ -11,7 +13,6 @@ class SessionController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -19,7 +20,7 @@ class SessionController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.login');
     }
 
     /**
@@ -27,7 +28,18 @@ class SessionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attributes = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if (!Auth::attempt($attributes)) {
+            throw ValidationException::withMessages(['email' => 'Your provided credentials could not be verified.']);
+        }
+
+        $request->session()->regenerate();
+
+        return redirect()->route('home');
     }
 
     /**
@@ -35,7 +47,6 @@ class SessionController extends Controller
      */
     public function show(string $id)
     {
-        //
     }
 
     /**
@@ -43,7 +54,6 @@ class SessionController extends Controller
      */
     public function edit(string $id)
     {
-        //
     }
 
     /**
@@ -51,14 +61,15 @@ class SessionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy()
     {
-        //
+        Auth::logout();
+
+        return redirect()->route('home');
     }
 }

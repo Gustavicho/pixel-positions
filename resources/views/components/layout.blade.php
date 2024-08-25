@@ -29,8 +29,17 @@
                 <a href="#">Salaries</a>
                 <a href="#">Companies</a>
             </div>
-            <div>
-                <a href="#">Post job</a>
+            <div class="flex gap-2">
+                @guest
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                @endguest
+                @auth
+                    <a href="#">Post job</a>
+                    <x-forms.form action="/login" method="DELETE">
+                        <x-forms.button>Logout</x-forms.button>
+                    </x-forms.form>
+                @endauth
             </div>
         </nav>
 
