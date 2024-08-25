@@ -1,4 +1,9 @@
-{{-- add the id of job to get the correct img --}}
-@props(['isWide' => false])
+@props(['isWide' => false, 'src' => ''])
 
-<img src="http://placehold.it/{{ $isWide ? '90/90' : '42/42' }}" alt="" class="rounded-lg">
+@php
+    if (!$isWide) {
+        $src = Str::replace('90x90.png', '42x42.png', $src);
+    }
+@endphp
+
+<img {{ $attributes->merge(['src' => $src, 'class' => 'rounded-lg']) }}>

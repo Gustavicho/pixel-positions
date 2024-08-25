@@ -3,14 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\Tag;
 
 class JobController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Job $jobs, Tag $tags)
     {
+        $jobs = $jobs->all()->groupBy('featured');
+
+        return view('jobs.index', [
+            'featuredJobs' => $jobs[1],
+            'jobs' => $jobs[0],
+            'tags' => $tags->all(),
+        ]);
     }
 
     /**

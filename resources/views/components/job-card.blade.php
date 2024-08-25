@@ -1,17 +1,18 @@
 <x-panel class="flex-col gap-8 text-center">
-    <p class="text-sm text-start">Company</p>
+    <p class="text-sm text-start">{{ $job->employer->name }}</p>
 
     <div class="py-2">
-        <h3 class="text-xl font-bold group-hover:text-blue-600 transition duration-300">Title</h3>
-        <p class="mt-4">Time - Salary</p>
+        <h3 class="text-xl font-bold group-hover:text-blue-600 transition duration-300">{{ $job->title }}</h3>
+        <p class="mt-4">{{ $job->schedule }} - $ {{ number_format($job->salary) }} USD</p>
     </div>
 
     <div class="flex justify-between items-center mt-auto">
         <div>
-            <x-tag size="xs" href="#">Tag</x-tag>
-            <x-tag size="xs" href="#">Tag</x-tag>
+            @foreach ($job->tags as $tag)
+                <x-tag size="sm" :$tag />
+            @endforeach
         </div>
 
-        <x-employer-logo />
+        <x-employer-logo src="{{ $job->employer->logo }}" />
     </div>
 </x-panel>

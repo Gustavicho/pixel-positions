@@ -13,27 +13,27 @@
         <section>
             <x-section-title>Popular jobs</x-section-title>
             <div class="grid grid-cols-3 gap-6 mt-4">
-                <x-job-card />
-                <x-job-card />
-                <x-job-card />
+                @foreach ($featuredJobs as $job)
+                    <x-job-card :$job />
+                @endforeach
             </div>
         </section>
 
         <section>
             <x-section-title>Tags</x-section-title>
             <div class="mt-4 space-x-1">
-                @for ($i = 0; $i < 8; $i++)
-                    <x-tag href="#">Tag</x-tag>
-                @endfor
+                @foreach ($tags as $tag)
+                    <x-tag :$tag />
+                @endforeach
             </div>
         </section>
 
         <section>
             <x-section-title>Recent jobs</x-section-title>
             <div class="mt-4 space-y-6">
-                <x-job-card-wide />
-                <x-job-card-wide />
-                <x-job-card-wide />
+                @foreach ($jobs as $job)
+                    <x-job-card-wide :$job />
+                @endforeach
             </div>
         </section>
     </div>

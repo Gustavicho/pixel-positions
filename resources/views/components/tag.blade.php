@@ -1,4 +1,4 @@
-@props(['size' => 'base'])
+@props(['size' => 'base', 'tag'])
 
 @php
     $size = match ($size) {
@@ -9,11 +9,14 @@
         'xl' => 'text-xl px-5 py-2.5 mx-2.5',
         default => 'text-base px-3 py-1.5 mx-1',
     };
+
+    $link = '/tags/' . strtolower($tag->name);
 @endphp
 
 <a
     {{ $attributes->merge([
         'class' => "bg-white/10 hover:bg-white/25 $size rounded-full transition duration-300",
+        'href' => $link,
     ]) }}>
-    {{ $slot }}
+    {{ $tag->name }}
 </a>
