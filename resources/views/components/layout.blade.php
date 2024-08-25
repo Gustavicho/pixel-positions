@@ -35,10 +35,7 @@
                     <a href="/register">Register</a>
                 @endguest
                 @auth
-                    <a href="#">Post job</a>
-                    <x-forms.form action="/login" method="DELETE">
-                        <x-forms.button>Logout</x-forms.button>
-                    </x-forms.form>
+                    <a href="/jobs/create">Post job</a>
                 @endauth
             </div>
         </nav>

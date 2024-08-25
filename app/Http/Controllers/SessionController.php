@@ -8,15 +8,9 @@ use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-    }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for login in a acount.
      */
     public function create()
     {
@@ -24,7 +18,7 @@ class SessionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * xhexk the db and login in a acount.
      */
     public function store(Request $request)
     {
@@ -43,28 +37,7 @@ class SessionController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-    }
-
-    /**
-     * Remove the specified resource from storage.
+     * Log out the current user.
      */
     public function destroy()
     {
