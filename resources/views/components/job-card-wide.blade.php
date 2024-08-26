@@ -4,8 +4,8 @@
 
     <div class="flex-1 flex flex-col">
         <p class="text-sm opacity-50">{{ $job->employer->name }}</p>
-        <h3 class="text-xl font-bold mt-2 group-hover:text-blue-600 transition duration-300">
-            {{ $job->title }}
+        <h3 href="{{ $job->url }}" class="text-xl font-bold mt-2 group-hover:text-blue-600 transition duration-300">
+            <a href="{{ $job->url }}" target="_blank">{{ $job->title }}</a>
         </h3>
         <p class="text-sm opacity-50 mt-auto">
             {{ $job->schedule }} - $ {{ number_format($job->salary) }} USD

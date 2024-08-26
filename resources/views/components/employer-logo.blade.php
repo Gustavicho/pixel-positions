@@ -1,9 +1,9 @@
 @props(['isWide' => false, 'src' => ''])
 
 @php
-    if (!$isWide) {
-        $src = Str::replace('90x90.png', '42x42.png', $src);
-    }
+    $sizeClass = $isWide ? 'w-[90px] h-[90px]' : 'w-[42px] h-[42px]';
 @endphp
 
-<img {{ $attributes->merge(['src' => $src, 'class' => 'rounded-lg']) }}>
+<div class="{{ $sizeClass }}">
+    <img {{ $attributes->merge(['src' => $src, 'class' => 'rounded-lg w-full h-full object-cover']) }}>
+</div>

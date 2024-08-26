@@ -2,8 +2,12 @@
     <p class="text-sm text-start">{{ $job->employer->name }}</p>
 
     <div class="py-2">
-        <h3 class="text-xl font-bold group-hover:text-blue-600 transition duration-300">{{ $job->title }}</h3>
-        <p class="mt-4">{{ $job->schedule }} - $ {{ number_format($job->salary) }} USD</p>
+        <h3 class="text-xl font-bold group-hover:text-blue-600 transition duration-300">
+            <a href="{{ $job->url }}" target="_blank">{{ $job->title }}</a>
+        </h3>
+        <p class="mt-4">
+            {{ $job->schedule }} - $ {{ number_format($job->salary) }} USD
+        </p>
     </div>
 
     <div class="flex justify-between items-center mt-auto">
