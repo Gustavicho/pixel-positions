@@ -29,13 +29,18 @@
                 <a href="#">Salaries</a>
                 <a href="#">Companies</a>
             </div>
-            <div class="flex gap-2">
+            <div class="flex gap-4 font-bold">
                 @guest
                     <a href="/login">Login</a>
                     <a href="/register">Register</a>
                 @endguest
                 @auth
                     <a href="/jobs/create">Post job</a>
+                    <form action="/logout" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button>Log out</button>
+                    </form>
                 @endauth
             </div>
         </nav>
