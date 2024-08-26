@@ -1,3 +1,7 @@
+# Laravel Job Board
+
+This is a simple job board built with Laravel. It's a simple CRUD application that allows you to create, read, update and delete jobs. The application is based on the official Laravel documentation. I did this to pratice my abilities!
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
