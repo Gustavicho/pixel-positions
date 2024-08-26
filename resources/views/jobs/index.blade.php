@@ -3,10 +3,9 @@
         <section class="text-center">
             <h2 class="font-bold text-4xl mb-4">Find your next Job!</h2>
 
-            <form method="GET" action="/jobs">
-                <input type="text" name="search" placeholder="software engineer..."
-                    class="w-full max-w-xl bg-white/10 px-6 py-4 rounded-xl ">
-            </form>
+            <x-forms.form action="/search">
+                <x-forms.input :label="false" name="q" placeholder="software engineer..." />
+            </x-forms.form>
         </section>
 
 
